@@ -3,7 +3,7 @@ import { CreateCompanyData } from "./../services/companiesService.js"
 
 
 async function findCompanyCNPJ(cnpj : string) {
-    return await prisma.company.findUnique({where : {cnpj}})
+    return await prisma.company.findUnique({where: {cnpj}})
 }
 
 async function registerCompany(company : CreateCompanyData) {
@@ -14,8 +14,18 @@ async function getAllCompanies(){
     return await prisma.company.findMany();
 }
 
+async function checkCompanyById(id : number) {
+    return prisma.company.findUnique({where: {id}})
+}
+
+async function deleteCompanyById(id: number) {
+    await prisma.company.delete({where: {id}})
+}
+
 export const companiesRepository = {
     findCompanyCNPJ,
     registerCompany,
-    getAllCompanies
+    getAllCompanies,
+    checkCompanyById,
+    deleteCompanyById
 }

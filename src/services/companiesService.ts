@@ -16,7 +16,23 @@ async function listCompanies() {
     return companies;
 }
 
+async function deleteCompany(companyId : number) {
+
+    await companiesService.checkCompanyId(companyId);
+
+    await companiesRepository.deleteCompanyById(companyId);
+}
+
+async function checkCompanyId (companyId : number) {
+    const checkCompanyId = await companiesRepository.checkCompanyById(companyId);
+    if (!checkCompanyId) {
+        throw { name: "notFound", message: "Company not found"}
+    }
+}
+
 export const companiesService = {
     createCompany,
-    listCompanies
+    listCompanies,
+    checkCompanyId,
+    deleteCompany
 }

@@ -10,3 +10,9 @@ export async function listCompanies (req: Request, res: Response) {
     const companies = await companiesService.listCompanies();
     res.status(200).send(companies);
 }
+
+export async function deleteCompany (req: Request, res: Response) {
+    const {id} = req.params;
+    await companiesService.deleteCompany(parseInt(id));
+    res.status(200).send("Company deleted")
+}

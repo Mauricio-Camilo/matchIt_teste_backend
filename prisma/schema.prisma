@@ -15,5 +15,5 @@ model Company {
     name        String
     cnpj        String       @unique
     address     String       
-    @@map("Companies")
+    @@map("companies")
 }

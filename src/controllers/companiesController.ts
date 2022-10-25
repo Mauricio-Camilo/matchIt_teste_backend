@@ -5,3 +5,8 @@ export async function createCompany (req: Request, res: Response) {
     await companiesService.createCompany(req.body);
     res.status(201).send('Company created');
 }
+
+export async function listCompanies (req: Request, res: Response) {
+    const companies = await companiesService.listCompanies();
+    res.status(200).send(companies);
+}

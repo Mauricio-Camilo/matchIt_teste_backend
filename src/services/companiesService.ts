@@ -11,6 +11,12 @@ async function createCompany(company : CreateCompanyData) {
     await companiesRepository.registerCompany(company);
 }
 
+async function listCompanies() {
+    const companies = await companiesRepository.getAllCompanies();
+    return companies;
+}
+
 export const companiesService = {
-    createCompany
+    createCompany,
+    listCompanies
 }

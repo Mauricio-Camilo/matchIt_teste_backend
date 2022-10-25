@@ -10,7 +10,12 @@ async function registerCompany(company : CreateCompanyData) {
     await prisma.company.create({data: company})
 }
 
+async function getAllCompanies(){
+    return await prisma.company.findMany();
+}
+
 export const companiesRepository = {
     findCompanyCNPJ,
-    registerCompany
+    registerCompany,
+    getAllCompanies
 }

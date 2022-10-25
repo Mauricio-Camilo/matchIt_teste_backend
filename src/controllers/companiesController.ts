@@ -14,5 +14,12 @@ export async function listCompanies (req: Request, res: Response) {
 export async function deleteCompany (req: Request, res: Response) {
     const {id} = req.params;
     await companiesService.deleteCompany(parseInt(id));
-    res.status(200).send("Company deleted")
+    res.status(200).send("Company deleted");
+}
+
+export async function updateCompany (req: Request, res: Response) {
+    const {id} = req.params;
+    await companiesService.updateCompany(req.body, parseInt(id));
+    res.status(200).send("Company updated")
+
 }

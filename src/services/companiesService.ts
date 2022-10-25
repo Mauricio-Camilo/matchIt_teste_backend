@@ -23,16 +23,36 @@ async function deleteCompany(companyId : number) {
     await companiesRepository.deleteCompanyById(companyId);
 }
 
+async function updateCompany(company : CreateCompanyData, companyId : number) {
+
+    const response = await companiesService.checkCompanyId(companyId);
+
+    const updatedCompany = companiesService.updatedCompanyData(company, response);
+
+    await companiesRepository.updateCompanyById(updatedCompany, companyId);
+}
+
 async function checkCompanyId (companyId : number) {
-    const checkCompanyId = await companiesRepository.checkCompanyById(companyId);
-    if (!checkCompanyId) {
+    const response = await companiesRepository.checkCompanyById(companyId);
+    if (!response) {
         throw { name: "notFound", message: "Company not found"}
     }
+    else return response;
+}
+
+function updatedCompanyData(updatedCompanyData : CreateCompanyData, previousCompanyData : CreateCompanyData) {
+    if (updatedCompanyData.name === "") updatedCompanyData.name = previousCompanyData.name;
+    if (updatedCompanyData.cnpj === "") updatedCompanyData.cnpj = previousCompanyData.cnpj;
+    if (updatedCompanyData.address === "") updatedCompanyData.address = previousCompanyData.address;
+
+    return updatedCompanyData;
 }
 
 export const companiesService = {
     createCompany,
     listCompanies,
     checkCompanyId,
-    deleteCompany
+    deleteCompany,
+    updateCompany,
+    updatedCompanyData
 }

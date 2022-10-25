@@ -22,10 +22,22 @@ async function deleteCompanyById(id: number) {
     await prisma.company.delete({where: {id}})
 }
 
+async function updateCompanyById(company: CreateCompanyData, id: number) {
+    await prisma.company.update({
+        where: {id},
+        data: {
+            name: company.name,
+            cnpj: company.cnpj,
+            address: company.address
+        }
+    })
+}
+
 export const companiesRepository = {
     findCompanyCNPJ,
     registerCompany,
     getAllCompanies,
     checkCompanyById,
-    deleteCompanyById
+    deleteCompanyById,
+    updateCompanyById
 }

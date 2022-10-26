@@ -8,7 +8,6 @@ import prisma from "./../../config/database.js";
 describe("companies Services createCompany function tests suite", () => {
 
     it("should create a company", async () => {
-
         await prisma.$executeRaw`TRUNCATE TABLE companies RESTART IDENTITY`
 
         const company: CreateCompanyData = {
@@ -46,7 +45,6 @@ describe("companies Services createCompany function tests suite", () => {
         })
 
         await companiesService.createCompany(company);
-
     });
 })
 
@@ -77,7 +75,6 @@ describe("companies Services listCompanies function tests suite", () => {
 describe("companies Services deleteCompany function tests suite", () => {
 
     it("Should delete a company", async () => {
-
         const companyId = 1;
 
         jest.spyOn(companiesRepository, "checkCompanyById").mockImplementationOnce(() : any => {
@@ -93,7 +90,6 @@ describe("companies Services deleteCompany function tests suite", () => {
     });
 
     it("should fail to delete a company", async () => {
-
         const companyId = 10
 
         jest.spyOn(companiesRepository, "checkCompanyById").mockImplementationOnce(() : any => {});

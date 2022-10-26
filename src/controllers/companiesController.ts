@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { companiesService } from "../services/companiesService.js";
-import { exit } from 'process';
 
 export async function createCompany (req: Request, res: Response) {
     await companiesService.createCompany(req.body);
@@ -22,5 +21,4 @@ export async function updateCompany (req: Request, res: Response) {
     const {id} = req.params;
     await companiesService.updateCompany(req.body, parseInt(id));
     res.status(200).send("Company updated")
-
 }

@@ -3,6 +3,6 @@ import { closeServer } from "../controllers/closeController.js";
 
 const closeRouter = Router();
 
-closeRouter.post("/close", closeServer);
+closeRouter.get("/close", closeServer);
 
 export default closeRouter;

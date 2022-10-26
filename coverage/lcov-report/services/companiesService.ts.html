@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.52% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/23</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/20</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -147,27 +147,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -202,13 +202,13 @@ async function deleteCompany(companyId : number) {
     await companiesRepository.deleteCompanyById(companyId);
 }
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >updateCompany(</span>company : CreateCompanyData, companyId : number) {
+async function updateCompany(company : CreateCompanyData, companyId : number) {
 &nbsp;
-    const response = <span class="cstat-no" title="statement not covered" >await companiesService.checkCompanyId(companyId);</span>
+    const response = await companiesService.checkCompanyId(companyId);
 &nbsp;
-    const updatedCompany = <span class="cstat-no" title="statement not covered" >companiesService.updatedCompanyData(company, response);</span>
+    const updatedCompany = companiesService.updatedCompanyData(company, response);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await companiesRepository.updateCompanyById(updatedCompany, companyId);</span>
+    await companiesRepository.updateCompanyById(updatedCompany, companyId);
 }
 &nbsp;
 async function checkCompanyId (companyId : number) {
@@ -219,12 +219,12 @@ async function checkCompanyId (companyId : number) {
     else return response;
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >updatedCompanyData(</span>updatedCompanyData : CreateCompanyData, previousCompanyData : CreateCompanyData) {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (updatedCompanyData.name === "") <span class="cstat-no" title="statement not covered" >updatedCompanyData.name = previousCompanyData.name;</span></span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (updatedCompanyData.cnpj === "") <span class="cstat-no" title="statement not covered" >updatedCompanyData.cnpj = previousCompanyData.cnpj;</span></span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (updatedCompanyData.address === "") <span class="cstat-no" title="statement not covered" >updatedCompanyData.address = previousCompanyData.address;</span></span>
+function updatedCompanyData(updatedCompanyData : CreateCompanyData, previousCompanyData : CreateCompanyData) {
+    if (updatedCompanyData.name === "") updatedCompanyData.name = previousCompanyData.name;
+    if (updatedCompanyData.cnpj === "") updatedCompanyData.cnpj = previousCompanyData.cnpj;
+    if (updatedCompanyData.address === "") updatedCompanyData.address = previousCompanyData.address;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return updatedCompanyData;</span>
+    return updatedCompanyData;
 }
 &nbsp;
 export const companiesService = {
@@ -241,7 +241,7 @@ export const companiesService = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-26T00:29:57.763Z
+                at 2022-10-26T00:39:14.141Z
             </div>
         <script src="../prettify.js"></script>
         <script>

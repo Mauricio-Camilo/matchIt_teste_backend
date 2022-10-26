@@ -5,10 +5,6 @@ import { companiesRepository } from "../../repositories/companiesRepository.js";
 import { CreateCompanyData } from "./../../services/companiesService.js"
 import prisma from "./../../config/database.js";
 
-// beforeEach(async () => {
-//     await prisma.$executeRaw`TRUNCATE TABLE companies RESTART IDENTITY`
-// })
-
 describe("companies Services createCompany function tests suite", () => {
 
     it("should create a company", async () => {
@@ -52,7 +48,6 @@ describe("companies Services createCompany function tests suite", () => {
         await companiesService.createCompany(company);
 
     });
-
 })
 
 describe("companies Services listCompanies function tests suite", () => {
@@ -110,5 +105,28 @@ describe("companies Services deleteCompany function tests suite", () => {
             name: "notFound"
         })
     });
+})
 
+describe("companies Services updateCompany function tests suite", () => {
+
+    it("Should update a company", async () => {
+        const company : CreateCompanyData = {
+            name: "",
+            cnpj: "",
+            address: ""
+        }
+
+        const companyId = 1;
+
+        jest.spyOn(companiesRepository, "checkCompanyById").mockImplementationOnce(() : any => {
+            return companyId;
+        });
+
+        jest.spyOn(companiesRepository, "updateCompanyById").mockImplementationOnce(() : any => {});
+    
+        await companiesService.updateCompany(company, companyId);
+
+        expect(companiesRepository.checkCompanyById).toBeCalled();
+        expect(companiesRepository.updateCompanyById).toBeCalled();
+    })
 })

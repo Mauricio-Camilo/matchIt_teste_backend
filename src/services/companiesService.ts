@@ -25,11 +25,11 @@ async function deleteCompany(companyId : number) {
 
 async function updateCompany(company : CreateCompanyData, companyId : number) {
 
-    const response = await companiesService.checkCompanyId(companyId);
+    const previousCompanyData = await companiesService.checkCompanyId(companyId);
 
-    const updatedCompany = companiesService.updatedCompanyData(company, response);
+    const updatedCompanyData = companiesService.updatedCompanyData(company, previousCompanyData);
 
-    await companiesRepository.updateCompanyById(updatedCompany, companyId);
+    await companiesRepository.updateCompanyById(updatedCompanyData, companyId);
 }
 
 async function checkCompanyId (companyId : number) {

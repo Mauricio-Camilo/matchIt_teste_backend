@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.43% </span>
+                <span class="strong">56.52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/23</span>
+                <span class='fraction'>13/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>13/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -140,26 +140,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,11 +195,11 @@ async function listCompanies() {
     return companies;
 }
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >deleteCompany(</span>companyId : number) {
+async function deleteCompany(companyId : number) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await companiesService.checkCompanyId(companyId);</span>
+    await companiesService.checkCompanyId(companyId);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    await companiesRepository.deleteCompanyById(companyId);</span>
+    await companiesRepository.deleteCompanyById(companyId);
 }
 &nbsp;
 async function <span class="fstat-no" title="function not covered" >updateCompany(</span>company : CreateCompanyData, companyId : number) {
@@ -211,12 +211,12 @@ async function <span class="fstat-no" title="function not covered" >updateCompan
 <span class="cstat-no" title="statement not covered" >    await companiesRepository.updateCompanyById(updatedCompany, companyId);</span>
 }
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >checkCompanyId </span>(companyId : number) {
-    const response = <span class="cstat-no" title="statement not covered" >await companiesRepository.checkCompanyById(companyId);</span>
-<span class="cstat-no" title="statement not covered" >    if (!response) {</span>
-<span class="cstat-no" title="statement not covered" >        throw { name: "notFound", message: "Company not found"}</span>
+async function checkCompanyId (companyId : number) {
+    const response = await companiesRepository.checkCompanyById(companyId);
+    if (!response) {
+        throw { name: "notFound", message: "Company not found"}
     }
-    else <span class="cstat-no" title="statement not covered" >return response;</span>
+    else return response;
 }
 &nbsp;
 function <span class="fstat-no" title="function not covered" >updatedCompanyData(</span>updatedCompanyData : CreateCompanyData, previousCompanyData : CreateCompanyData) {
@@ -241,7 +241,7 @@ export const companiesService = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-26T00:17:46.657Z
+                at 2022-10-26T00:29:57.763Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -4,7 +4,7 @@ import { createBot } from 'whatsapp-cloud-api';
   try {
     // replace the values below from the values you copied above
     const from = '101623412898257';
-    const token = 'EAANRrQVXUM4BACfwFOyAMmf86jcLoS2ZBxtFtPfkp1wFYewZCNZC3YexlpAqisjoID2kXkiYjHqWZCPebBQZArYifPegisgVTNYZCOpsTPxOz8hjr0xRaklMto1Vj9IXaHLaYvVAat77QZAXIFZBjdpSkMHlylwXQuZCimlljQizGAxgi4LqjdVfuhw8TodSRD5w8QXoLp7uMrQZDZD';
+    const token = '';
     const to = '5511972665730'; // your phone number without the leading '+'
     const webhookVerifyToken = 'securityToken123!'; // use a random value, e.g. 'bju#hfre@iu!e87328eiekjnfw'
 

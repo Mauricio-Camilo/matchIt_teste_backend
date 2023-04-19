@@ -6,7 +6,7 @@ export async function postWhatsapp(req: Request, res: Response) {
   try {
     // replace the values below from the values you copied above
     const from = '101623412898257';
-    const token = 'EAANRrQVXUM4BAGuAHtZBpO7pdmcmSeUEhadlbdmrP0eDiXFvBwdDZB56r5fxoAgGHWYjjpZB3oPAAS8nUR3wiGXUdJYQuNDEF1YvQm7maIPKnrTtQPWdU3sqkucCrUTX58VmMl8PNmpY73K8hB3Y2B67Yt3osNpJJgnKtZBt8ZBDiKcBxu8a1KA2NWiCR931ZCTrfHmQugxgZDZD';
+    const token = '';
     const to = '5511972665730'; // your phone number without the leading '+'
 
     const bot = createBot(from, token);
